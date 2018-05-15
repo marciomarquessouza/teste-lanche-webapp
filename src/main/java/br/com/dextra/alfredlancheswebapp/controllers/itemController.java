@@ -23,13 +23,13 @@ public class itemController {
     @RequestMapping("item/new")
     public String newItem(Model model) {
         model.addAttribute("item", new Item());
-        return "itemformrest";
+        return "admintemplate/pages/itemform";
     }
 
     @RequestMapping(value = "item", method = RequestMethod.POST)
     public String saveItem(Item item) {
         itemService.saveItem(item);
-        return "redirect:/item/" + item.getId();
+        return "redirect:/items";
     }
 
     @RequestMapping("item/{id}")
@@ -41,13 +41,13 @@ public class itemController {
     @RequestMapping(value = "/items", method = RequestMethod.GET)
     public String list(Model model){
         model.addAttribute("items", itemService.listAllItems());
-        return  "items";
+        return  "admintemplate/pages/items";
     }
 
     @RequestMapping("item/edit/{id}")
     public String edit(@PathVariable Integer id, Model model) {
         model.addAttribute("item", itemService.getItemById(id));
-        return "itemform";
+        return "admintemplate/pages/itemshow";
     }
 
     @RequestMapping("item/delete/{id}")

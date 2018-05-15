@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head lang="en">
+
+</head>
+<body>
+
+<div th:fragment="header">
+    <div class="sidebar" data-color="red" data-image="../../static/assets/img/sidebar-1.jpg"
+         th:data-image="@{/assets/img/sidebar-1.jpg}">
+
+        <div class="logo">
+            <a href="#" th:href="@{/admin}" class="simple-text">
+                ALFRED LANCHES
+            </a>
+        </div>
+
+        <div class="sidebar-wrapper">
+            <ul class="nav">
+                <li id="li_home">
+                    <a href="#" th:href="@{/admin}">
+                        <i class="material-icons">dashboard</i>
+                        <p>Home</p>
+                    </a>
+                </li>
+
+                <li id="li_item">
+                    <a href="#" th:href="@{/admin/itens}">
+                        <i class="material-icons">fastfood</i>
+                        <p>Itens</p>
+                    </a>
+                </li>
+
+                <li id="li_recipe">
+                    <a href="#">
+                        <i class="material-icons">restaurant</i>
+                        <p>Receitas</p>
+                    </a>
+                </li>
+
+                <li id="li_order">
+                    <a href="#">
+                        <i class="material-icons">notifications</i>
+                        <p>Ordens</p>
+                    </a>
+                </li>
+
+                <li id="li_promotion">
+                    <a href="#">
+                        <i class="material-icons">attach_money</i>
+                        <p>Promoções</p>
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>
+
+</body>
+</html>

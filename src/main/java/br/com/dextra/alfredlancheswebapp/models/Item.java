@@ -12,11 +12,19 @@ public class Item {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
+    @Column(name="id")
     private Integer id;
 
+    @Column(name="code")
     private String code;
+
+    @Column(name = "description")
     private String description;
-    private BigDecimal price;
+
+    @Column(name = "price")
+    private Double price;
+
+    @Column(name = "imageUrl")
     private String imageUrl;
 
     public Integer getId() {
@@ -43,13 +51,9 @@ public class Item {
         this.description = description;
     }
 
-    public BigDecimal getPrice() {
-        return price;
-    }
+    public Double getPrice() { return price; }
 
-    public void setPrice(BigDecimal price) {
-        this.price = price;
-    }
+    public void setPrice(Double price) { this.price = price; }
 
     public String getImageUrl() {
         return imageUrl;
@@ -58,4 +62,7 @@ public class Item {
     public void setImageUrl(String imageUrl) {
         this.imageUrl = imageUrl;
     }
+
+
+
 }
