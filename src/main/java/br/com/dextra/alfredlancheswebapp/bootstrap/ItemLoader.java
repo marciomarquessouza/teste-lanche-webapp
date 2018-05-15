@@ -55,5 +55,6 @@ public class ItemLoader implements ApplicationListener<ContextRefreshedEvent> {
         queijo.setDescription("Queijo");
         queijo.setPrice(1.50);
         queijo.setImageUrl("https://drive.google.com/file/d/1ZcnhYpcRO-JAQCHxnqzsVYw8tA1g98Ch");
+        itemRepository.save(queijo);
     }
 }

@@ -3,7 +3,7 @@ package br.com.dextra.alfredlancheswebapp.models;
 import javax.persistence.*;
 
 @Entity
-public class RecipeItems {
+public class ItemRecipe {
 
     private Integer id;
     private String name;
@@ -12,13 +12,13 @@ public class RecipeItems {
     private String observation;
     private Recipe recipe;
 
-    public RecipeItems() { }
+    public ItemRecipe() { }
 
-    public RecipeItems(String name) {
+    public ItemRecipe(String name) {
         this.name = name;
     }
 
-    public RecipeItems(Integer id, String name, Double value, Double quantity, String observation, Recipe recipe) {
+    public ItemRecipe(Integer id, String name, Double value, Double quantity, String observation, Recipe recipe) {
         this.id = id;
         this.name = name;
         this.value = value;
@@ -45,9 +45,7 @@ public class RecipeItems {
         this.name = name;
     }
 
-    public Double getValue() {
-        return value;
-    }
+    public Double getValue() { return value; }
 
     public void setValue(Double value) {
         this.value = value;
