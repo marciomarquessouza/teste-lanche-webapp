@@ -1,13 +1,13 @@
 package br.com.dextra.alfredlancheswebapp.models;
 
 import javax.persistence.*;
-import java.math.BigDecimal;
+import java.util.Set;
 
 
 @Entity
 public class Item {
     /**
-     * O objeto Item é base para os objetos Ordem (Order) e Receita (Recept)
+     * O objeto Item é base para os objetos Ordem (Orderv) e Receita (Recept)
      */
 
     @Id
@@ -15,17 +15,16 @@ public class Item {
     @Column(name="id")
     private Integer id;
 
-    @Column(name="code")
     private String code;
 
-    @Column(name = "description")
     private String description;
 
-    @Column(name = "price")
     private Double price;
 
-    @Column(name = "imageUrl")
     private String imageUrl;
+
+    @OneToMany(mappedBy = "item", cascade = CascadeType.ALL)
+    private Set<ItemRecipe> itemRecipes;
 
     public Integer getId() {
         return id;
@@ -63,6 +62,12 @@ public class Item {
         this.imageUrl = imageUrl;
     }
 
+    public Set<ItemRecipe> getItemRecipes() {
+        return itemRecipes;
+    }
 
+    public void setItemRecipes(Set<ItemRecipe> itemRecipes) {
+        this.itemRecipes = itemRecipes;
+    }
 
 }

@@ -5,6 +5,9 @@ import br.com.dextra.alfredlancheswebapp.repositories.ItemRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+/**
+ * serviços CRUD dos Itens
+ */
 @Service
 public class ItemServiceImpl implements ItemService {
 

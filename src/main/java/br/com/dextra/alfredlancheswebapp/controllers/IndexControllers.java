@@ -10,7 +10,7 @@ public class IndexControllers {
     //Página principal do App
     @RequestMapping("/")
     public String index() {
-        return "admintemplate/pages/home";
+        return "frontend/index";
     }
 
     /*
@@ -25,6 +25,11 @@ public class IndexControllers {
     @RequestMapping("admin/itens")
     public String adminItens() {
         return "redirect:/items";
+    }
+
+    @RequestMapping("admin/recipes")
+    public String adminRecipes() {
+        return "redirect:/recipes";
     }
 
 }

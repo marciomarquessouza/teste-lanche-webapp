@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping("/item/new/api")
-public class itemRestWebController {
+public class ItemRestWebController {
 
     private ItemService itemService;
 

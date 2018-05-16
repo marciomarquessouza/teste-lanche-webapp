@@ -28,6 +28,12 @@ public class Recipe {
         this.name = name;
     }
 
+    public Recipe(String name, String description, String imageUrl) {
+        this.name = name;
+        this.description = description;
+        this.imageUrl = imageUrl;
+    }
+
     public Recipe(int id, String name, String description, String imageUrl, Double amount) {
         this.id = id;
         this.name = name;
@@ -35,7 +41,6 @@ public class Recipe {
         this.imageUrl = imageUrl;
         this.amount = amount;
     }
-
 
     public int getId() {
         return id;
@@ -77,7 +82,6 @@ public class Recipe {
         this.amount = amount;
     }
 
-
     public Set<ItemRecipe> getItemRecipes() {
         return itemRecipes;
     }
@@ -86,22 +90,4 @@ public class Recipe {
         this.itemRecipes = itemRecipes;
     }
 
-    @Override
-    public String toString() {
-
-        String result = String.format(
-                "Receita[id=%d, name='%s']%n",
-                id, name );
-         if(itemRecipes != null) {
-             for(ItemRecipe itemRecipe : itemRecipes) {
-                 result += String.format(
-                         "Item[id=%id, name='%s']%n",
-                         itemRecipe.getId(), itemRecipe.getName()
-                 );
-             }
-         }
-
-        return result;
-
-    }
 }

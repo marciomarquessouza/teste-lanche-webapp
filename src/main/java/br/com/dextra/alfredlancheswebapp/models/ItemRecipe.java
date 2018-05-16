@@ -3,16 +3,12 @@ package br.com.dextra.alfredlancheswebapp.models;
 import javax.persistence.*;
 
 @Entity
-public class ItemRecipe {
+public class ItemRecipe{
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name="id")
-    private Integer id;
-
-    private String name;
-
-    private Double value;
+    private int id;
 
     private Double quantity;
 
@@ -22,26 +18,26 @@ public class ItemRecipe {
     @JoinColumn(name = "recipe_id")
     private Recipe recipe;
 
+    @ManyToOne
+    @JoinColumn(name = "item_id")
+    private Item item;
+
     public ItemRecipe() { }
 
-    public ItemRecipe(String name) {
-        this.name = name;
-    }
-
-    public ItemRecipe(String name, Recipe recipe) {
-        this.name = name;
+    // *** Construtor sem observação - o campo observação não foi solicitado no teste ***
+    public ItemRecipe(Recipe recipe, Item item, Double quantity) {
+        this.quantity = quantity;
         this.recipe = recipe;
+        this.item = item;
     }
 
-    public ItemRecipe(Integer id, String name, Double value, Double quantity, String observation, Recipe recipe) {
-        this.id = id;
-        this.name = name;
-        this.value = value;
+    // *** Construtor com observação ***
+    public ItemRecipe(Recipe recipe, Item item, Double quantity, String observation) {
         this.quantity = quantity;
         this.observation = observation;
         this.recipe = recipe;
+        this.item = item;
     }
-
 
     public Integer getId() {
         return id;
@@ -49,20 +45,6 @@ public class ItemRecipe {
 
     public void setId(Integer id) {
         this.id = id;
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public Double getValue() { return value; }
-
-    public void setValue(Double value) {
-        this.value = value;
     }
 
     public Double getQuantity() {
@@ -87,5 +69,13 @@ public class ItemRecipe {
 
     public void setRecipe(Recipe recipe) {
         this.recipe = recipe;
+    }
+
+    public Item getItem() {
+        return item;
+    }
+
+    public void setItem(Item item) {
+        this.item = item;
     }
 }
