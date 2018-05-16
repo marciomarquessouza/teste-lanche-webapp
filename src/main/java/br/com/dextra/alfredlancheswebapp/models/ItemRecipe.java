@@ -5,17 +5,32 @@ import javax.persistence.*;
 @Entity
 public class ItemRecipe {
 
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    @Column(name="id")
     private Integer id;
+
     private String name;
+
     private Double value;
+
     private Double quantity;
+
     private String observation;
+
+    @ManyToOne
+    @JoinColumn(name = "recipe_id")
     private Recipe recipe;
 
     public ItemRecipe() { }
 
     public ItemRecipe(String name) {
         this.name = name;
+    }
+
+    public ItemRecipe(String name, Recipe recipe) {
+        this.name = name;
+        this.recipe = recipe;
     }
 
     public ItemRecipe(Integer id, String name, Double value, Double quantity, String observation, Recipe recipe) {
@@ -27,8 +42,7 @@ public class ItemRecipe {
         this.recipe = recipe;
     }
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+
     public Integer getId() {
         return id;
     }
@@ -67,8 +81,6 @@ public class ItemRecipe {
         this.observation = observation;
     }
 
-    @ManyToOne
-    @JoinColumn(name = "recipe_id")
     public Recipe getRecipe() {
         return recipe;
     }

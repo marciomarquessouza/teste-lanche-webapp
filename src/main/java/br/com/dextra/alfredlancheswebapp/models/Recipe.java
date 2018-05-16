@@ -1,18 +1,25 @@
 package br.com.dextra.alfredlancheswebapp.models;
 
-import org.springframework.data.annotation.Id;
-
 import javax.persistence.*;
 import java.util.Set;
 
 @Entity
 public class Recipe {
 
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    @Column(name="id")
     private int id;
+
     private String name;
+
     private String description;
+
     private String imageUrl;
+
     private Double amount;
+
+    @OneToMany(mappedBy = "recipe", cascade = CascadeType.ALL)
     private Set<ItemRecipe> itemRecipes;
 
     public Recipe() { }
@@ -29,8 +36,7 @@ public class Recipe {
         this.amount = amount;
     }
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+
     public int getId() {
         return id;
     }
@@ -71,7 +77,7 @@ public class Recipe {
         this.amount = amount;
     }
 
-    @OneToMany(mappedBy = "recipe", cascade = CascadeType.ALL)
+
     public Set<ItemRecipe> getItemRecipes() {
         return itemRecipes;
     }
